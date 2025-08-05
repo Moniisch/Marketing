@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banner Editor</title>
+  <link rel="stylesheet" href="css/banner.css" />
+</head>
+<body>
+  <header>
+    <a href="index.html" class="back-button">← Home</a>
+    <h1>Banner Editor</h1>
+  </header>
+
+  <main class="editor-container">
+    <section class="controls">
+      <label>Banner Text:</label>
+      <input type="text" id="bannerInput" placeholder="Enter your text here" />
+
+      <label>Text Color:</label>
+      <input type="color" id="textColor" value="#ffffff" />
+
+      <label>Background Color:</label>
+      <input type="color" id="bgColor" value="#f152b5" />
+
+      <button id="applyBtn">Apply</button>
+    </section>
+    <section class="blocks extra-section">
+  <div class="block lilac about-block">
+    <h2>About Us</h2>
+    <img src="assets/team.jpg" alt="Our Team" class="about-img" />
+    <p>We are a colorful team of creatives building funky marketing tools for the boldest brands. Vividly is your playground to create, launch, and shine.</p>
+  </div>
+
+  <div class="block grapefruit contact-block">
+    <h2>Contact Us</h2>
+    <p>Have a question or collab idea?<br>Email us at <strong>hello@vividly.com</strong><br>or drop a message below:</p>
+    <a href="mailto:hello@vividly.com" class="contact-button">📬 Send Message</a>
+  </div>
+</section>
+
+    <section class="preview" id="bannerPreview">
+      Your Awesome Banner
+    </section>
+  </main>
+
+  <script src="banner.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vividly Marketing</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <script defer src="js/script.js"></script>
+</head>
+<body>
+  <header>
+    Vividly Marketing
+  </header>
+
+  <nav class="design-nav">
+  <div class="nav-block grapefruit"></div>
+  <div class="nav-block lipstick"></div>
+  <div class="nav-block lilac"></div>
+  <div class="nav-block petal"></div>
+  <div class="nav-block sunshine"></div>
+</nav>
+
+  <section class="hero">
+    <h1>Welcome to Vividly</h1>
+    <p>Create stunning marketing experiences with vibrant tools.</p>
+  </section>
+
+  <section class="blocks">
+  <a href="banner-editor.html" class="block grapefruit">Banner Editor</a>
+  <a href="marketing-page-editor.html" class="block lipstick">Marketing Page Editor</a>
+  <a href="landing-page-editor.html" class="block lilac">Landing Page Editor</a>
+  <a href="register.html" class="block petal">Register / Login</a>
+  <a href="campaign-overview.html" class="block sunshine">Campaign Overview</a>
+</section>
+  <section class="team-section">
+  <h2>Meet Our Team</h2>
+
+  <div class="team-slider">
+    <button class="arrow prev" onclick="prevCard()">&#8592;</button>
+
+    <div class="team-card active">
+      <img src="monica.jpg" alt="Monica S.">
+      <div class="card-content">
+        <h3>Monica S.</h3>
+        <span>CEO &amp; Founder</span>
+        <br>
+        <button class="read-more-btn" onclick="openModal('Monica S.', 'Monica leads the company with vision and passion.')">Read More</button>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="jamie.jpg" alt="Jamie Lee">
+      <div class="card-content">
+        <h3>Jamie Lee</h3>
+        <span>Marketing Manager</span>
+        <br>
+        <button class="read-more-btn" onclick="openModal('Jamie Lee', 'Jamie is a marketing wizard who runs our digital strategy.')">Read More</button>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="alex.jpg" alt="Alex Morgan">
+      <div class="card-content">
+        <h3>Alex Morgan</h3>
+        <span>Creative Director</span>
+        <br>
+        <button class="read-more-btn" onclick="openModal('Alex Morgan', 'Alex leads all visual direction for client brands.')">Read More</button>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="lara.jpg" alt="Lara Kim">
+      <div class="card-content">
+        <h3>Lara Kim</h3>
+        <span>Social Media Lead</span>
+        <br>
+        <button class="read-more-btn" onclick="openModal('Lara Kim', 'Lara makes sure our content goes viral and drives engagement.')">Read More</button>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="david.jpg" alt="David R.">
+      <div class="card-content">
+        <h3>David R.</h3>
+        <span>UX/UI Specialist</span>
+        <br>
+        <button class="read-more-btn" onclick="openModal('David R.', 'David builds seamless interfaces that users love.')">Read More</button>
+      </div>
+    </div>
+
+    <button class="arrow next" onclick="nextCard()">&#8594;</button>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal" id="teamModal">
+  <div class="modal-content" id="modalContent"></div>
+</div>
