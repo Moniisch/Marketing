@@ -1,0 +1,174 @@
+:root{
+    --ink:#2c1c3c;
+    --orange:#f97316;
+    --bg1:#ffe7f4;
+    --bg2:#ffefc7;
+  
+    /* stage size (updated by JS) */
+    --stage-w:1024;
+    --stage-h:400;
+  }
+  
+  /* Base */
+  *{ box-sizing:border-box }
+  html,body{ margin:0; overflow-x:hidden; }
+  body{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(135deg,var(--bg1) 0%, var(--bg2) 100%);
+    min-height:100vh;
+  }
+  
+  /* Fixed Home */
+  .home-btn{
+    position:fixed; top:14px; left:14px; z-index:1000;
+    display:inline-flex; align-items:center; gap:10px;
+    font-weight:800; color:#1f0f2c; text-decoration:none;
+    padding:10px 22px; border-radius:999px;
+    background:linear-gradient(135deg,#ffec3d,#ff8a23);
+    box-shadow:0 20px 40px rgba(255,166,0,.35);
+  }
+  .home-btn .arr{ font-size:18px; line-height:1 }
+  
+  /* Layout (no forced vh, both sides can scroll) */
+  .layout{
+    display:grid;
+    grid-template-columns: 420px 1fr;
+    gap:22px;
+    max-width:min(1400px,100vw - 16px);
+    margin:80px auto 18px;
+    padding:0 clamp(10px,2vw,18px);
+    align-items:start;
+  }
+  
+  /* Left panel */
+  .panel{
+    position:relative;
+    background:#fff; border-radius:26px;
+    padding:18px 16px 20px;
+    box-shadow:0 14px 36px rgba(0,0,0,.12);
+    max-height:calc(100dvh - 120px);
+    overflow:auto;               /* the panel scrolls */
+  }
+  .title{ margin:2px 6px 8px; font-size:22px }
+  
+  /* Groups */
+  .group{
+    padding:12px; margin:8px 0 14px;
+    border-radius:16px; background:#fbfbfe;
+  }
+  .group h3{ margin:0 0 10px; font-size:16px }
+  .lbl{ display:block; font-weight:700; margin:6px 0 6px 0 }
+  .input{
+    width:100%; font:inherit; padding:12px 12px; border-radius:12px;
+    border:2px solid #eee; background:#fff;
+  }
+  .input.small{ max-width:132px }
+  .row{ display:flex; align-items:center; gap:12px; margin-top:8px }
+  .row>span{ font-weight:700; min-width:130px }
+  .select{
+    width:100%; padding:12px; border-radius:12px; border:2px solid #eee; background:#fff; font:inherit;
+  }
+  
+  /* Background options */
+  .bg-type{ display:flex; gap:14px; margin-bottom:12px }
+  .bg-type label{ display:flex; gap:8px; align-items:center; cursor:pointer }
+  
+  .swatches{ display:flex; gap:10px; }
+  .swatch{
+    width:52px; height:35px; border-radius:12px; border:0; cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+  }
+  .swatch[data-grad="linear-gradient(135deg,#ffd5ec 0%,#ffeebe 100%)"]{ background:linear-gradient(135deg,#ffd5ec 0%,#ffeebe 100%) }
+  .swatch[data-grad="linear-gradient(135deg,#d6b4fc 0%,#fbc9da 100%)"]{ background:linear-gradient(135deg,#d6b4fc 0%,#fbc9da 100%) }
+  .swatch[data-grad="linear-gradient(135deg,#92e3a9 0%,#ffe29a 100%)"]{ background:linear-gradient(135deg,#92e3a9 0%,#ffe29a 100%) }
+  .swatch[data-grad="linear-gradient(135deg,#a7f3d0 0%,#dbeafe 100%)"]{ background:linear-gradient(135deg,#a7f3d0 0%,#dbeafe 100%) }
+  
+  .solid-row{
+    display:flex; align-items:center; gap:14px;
+    margin-top:16px;             /* 👈 extra breathing room below color block */
+  }
+  .solid-row input[type="color"]{
+    width:44px; height:36px; padding:0; border:0; background:transparent;
+  }
+  
+  /* File button */
+  .file-btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:12px 16px; border-radius:14px; cursor:pointer; user-select:none;
+    background:linear-gradient(135deg,#ffec3d,#ff8a23);
+    color:#1f0f2c; font-weight:800; box-shadow:0 12px 26px rgba(255,166,0,.35);
+  }
+  .hint{ margin:8px 0 0; opacity:.75 }
+  
+  /* Stickers */
+  .stickers{ display:flex; flex-wrap:wrap; gap:8px }
+  .sticker{
+    font-size:20px; line-height:1; border:0; background:#fff;
+    border-radius:10px; padding:8px 10px; cursor:pointer;
+    box-shadow:0 8px 18px rgba(0,0,0,.1);
+  }
+  
+  /* Export buttons */
+  .export .export-row{ display:flex; gap:10px }
+  .btn{
+    border:0; border-radius:12px; padding:12px 14px; cursor:pointer; font-weight:800;
+  }
+  .btn.primary{ background:#111; color:#fff }
+  .btn.outline{ background:#fff; border:2px solid #111; color:#111 }
+  
+  /* RIGHT: Stage (sticky in viewport) */
+  .stage-wrap{
+    position:sticky;             /* stays visible while you scroll */
+    top:72px;                    /* distance from top */
+    align-self:start;
+  }
+  .stage{
+    width:min(calc(var(--stage-w) * 1px), 100%);
+    aspect-ratio: calc(var(--stage-w) / var(--stage-h));
+    height:auto;
+    margin:0 auto;
+    background:#fff; border-radius:22px;
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+    overflow:hidden;
+    background-image:linear-gradient(135deg,#ffd5ec 0%,#ffeebe 100%);
+    position:relative;
+  }
+  
+  /* centered copy/button */
+  .center-col{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; pointer-events:none;
+    padding:24px;
+  }
+  .headline{ margin:0 0 10px; font-weight:800; font-size:56px }
+  .subline{ margin:0 0 18px; font-weight:600; opacity:.95; font-size:22px }
+  .cta{
+    pointer-events:auto;
+    display:inline-block; text-decoration:none; color:#fff; background:var(--orange);
+    font-weight:800; padding:14px 24px; border-radius:999px;
+    box-shadow:0 12px 26px rgba(249,115,22,.35);
+    font-size:18px;
+  }
+  
+  /* drag layer + draggable items */
+  #dragLayer{ position:absolute; inset:0; }
+  .item{ position:absolute; left:40px; top:40px; user-select:none; cursor:grab }
+  .item:active{ cursor:grabbing }
+  .item img{
+    display:block; max-width:100%; max-height:100%;
+    border-radius:12px; box-shadow:0 10px 24px rgba(0,0,0,.18)
+  }
+  .item.stk{ font-size:44px; line-height:1 }
+  
+  /* Tip below canvas */
+  .tip{ margin:8px 4px 0; opacity:.7 }
+  
+  /* Make it mobile-friendly */
+  @media (max-width: 1100px){
+    .layout{ grid-template-columns: 1fr; }
+    .panel{ max-height:none }
+    .stage-wrap{ position:static; top:auto } /* no sticky on narrow screens */
+    .stage{ width:100%; }
+  }

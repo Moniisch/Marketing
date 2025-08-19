@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vividly — Login / Sign Up</title>
+  <link rel="stylesheet" href="css/register.css" />
+</head>
+<body>
+  <main class="auth-wrap">
+    <h1 class="brand">Vividly Marketing</h1>
+
+    <div class="card glass">
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Login</button>
+        <button class="tab" data-tab="register">Sign Up</button>
+      </div>
+
+      <!-- Login -->
+      <form id="loginForm" class="panel active" autocomplete="on">
+        <div class="field">
+          <label for="login-username">Username</label>
+          <input id="login-username" name="username" type="text" required />
+        </div>
+        <div class="field">
+          <label for="login-password">Password</label>
+          <input id="login-password" name="password" type="password" required minlength="6"/>
+        </div>
+
+        <div id="loginError" class="error" role="alert" aria-live="polite"></div>
+        <button type="submit" class="cta grapefruit">Login</button>
+      </form>
+
+      <!-- Register -->
+      <form id="registerForm" class="panel" autocomplete="on">
+        <div class="field">
+          <label for="reg-username">Username</label>
+          <input id="reg-username" name="username" type="text" required />
+        </div>
+        <div class="field">
+          <label for="reg-password">Password (min 6 characters)</label>
+          <input id="reg-password" name="password" type="password" required minlength="6"/>
+        </div>
+        <div class="field">
+          <label for="reg-password2">Confirm Password</label>
+          <input id="reg-password2" name="password2" type="password" required minlength="6"/>
+        </div>
+
+        <div id="registerError" class="error" role="alert" aria-live="polite"></div>
+        <button type="submit" class="cta lipstick">Sign Up</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="js/register.js" defer></script>
+</body>
+</html>

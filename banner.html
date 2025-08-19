@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vividly — Banner Editor</title>
+  <link rel="stylesheet" href="css/banner.css">
+</head>
+<body>
+
+  <!-- Fixed Home -->
+  <a class="home-btn" href="index.html" aria-label="Go home">
+    <span class="arr">←</span> Home
+  </a>
+
+  <main class="layout">
+    <!-- LEFT: Controls -->
+    <aside class="panel">
+      <h2 class="title">Banner Editor</h2>
+
+      <!-- Background -->
+      <section class="group">
+        <h3>Background</h3>
+
+        <div class="bg-type" role="radiogroup" aria-label="Background type">
+          <label><input type="radio" name="bgType" value="gradient" checked> Gradient</label>
+          <label><input type="radio" name="bgType" value="solid"> Solid</label>
+        </div>
+
+        <!-- Gradient presets -->
+        <div id="gradRow" class="swatches" aria-label="Gradient presets">
+          <button class="swatch" data-grad="linear-gradient(135deg,#ffd5ec 0%,#ffeebe 100%)" aria-label="Peachy"></button>
+          <button class="swatch" data-grad="linear-gradient(135deg,#d6b4fc 0%,#fbc9da 100%)" aria-label="Lilac Petal"></button>
+          <button class="swatch" data-grad="linear-gradient(135deg,#92e3a9 0%,#ffe29a 100%)" aria-label="Mint Sunshine"></button>
+          <button class="swatch" data-grad="linear-gradient(135deg,#a7f3d0 0%,#dbeafe 100%)" aria-label="Aqua Sky"></button>
+        </div>
+
+        <!-- Solid color -->
+        <div id="solidRow" class="solid-row" hidden>
+          <input id="solidPicker" type="color" value="#f97316" aria-label="Background color">
+          <input id="solidHex" class="input" value="#f97316" aria-label="Background color hex">
+        </div>
+      </section>
+
+      <!-- Size -->
+      <section class="group">
+        <h3>Size</h3>
+        <label class="lbl" for="bannerSize">Banner size</label>
+        <select id="bannerSize" class="select">
+          <option value="1024x400">1024 × 400 (hero)</option>
+          <option value="728x90">728 × 90 (leaderboard)</option>
+          <option value="300x600">300 × 600 (half page)</option>
+          <option value="250x250">250 × 250 (square)</option>
+        </select>
+      </section>
+
+      <!-- Text -->
+      <section class="group">
+        <h3>Text</h3>
+        <label class="lbl" for="headline">Headline</label>
+        <input id="headline" class="input" value="Big Summer Sale">
+
+        <div class="row">
+          <span>Headline size</span>
+          <input id="headlineSize" type="range" min="18" max="96" value="56">
+        </div>
+
+        <label class="lbl" for="subline">Subline</label>
+        <input id="subline" class="input" value="Limited time offers. Don’t miss out!">
+
+        <div class="row">
+          <span>Subline size</span>
+          <input id="sublineSize" type="range" min="12" max="40" value="22">
+        </div>
+
+        <label class="lbl" for="ctaText">Button text</label>
+        <input id="ctaText" class="input" value="Shop Now">
+
+        <div class="row">
+          <span>Button size</span>
+          <input id="ctaSize" type="range" min="12" max="36" value="18">
+        </div>
+
+        <label class="lbl">Button color</label>
+        <div class="row">
+          <input id="ctaPicker" type="color" value="#f97316" aria-label="Button color">
+          <input id="ctaHex" class="input small" value="#f97316" aria-label="Button color hex">
+        </div>
+      </section>
+
+      <!-- Images -->
+      <section class="group">
+        <h3>Images</h3>
+        <label class="file-btn">
+          <input id="imgInput" type="file" accept="image/*" hidden>
+          + Choose Image
+        </label>
+        <p class="hint">Click a sticker or upload an image to add it. Drag on the banner to position.</p>
+      </section>
+
+      <!-- Stickers -->
+      <section class="group">
+        <h3>Stickers</h3>
+        <div class="stickers" id="stickers">
+          <button class="sticker" data-emoji="🔥">🔥</button>
+          <button class="sticker" data-emoji="💎">💎</button>
+          <button class="sticker" data-emoji="⭐">⭐</button>
+          <button class="sticker" data-emoji="⚡">⚡</button>
+          <button class="sticker" data-emoji="🎁">🎁</button>
+          <button class="sticker" data-emoji="❤️">❤️</button>
+        </div>
+      </section>
+
+      <!-- Export -->
+      <section class="group export">
+        <h3>Export</h3>
+        <div class="export-row">
+          <button id="btnJpg" class="btn primary">Export JPG</button>
+          <button id="btnPdf" class="btn outline">Export PDF</button>
+        </div>
+      </section>
+    </aside>
+
+    <!-- RIGHT: Stage -->
+    <section class="stage-wrap">
+      <div id="stage" class="stage" aria-label="Banner canvas">
+        <!-- drag layer gets items appended here -->
+        <div id="dragLayer"></div>
+
+        <!-- centered copy/button -->
+        <div class="center-col" aria-hidden="false">
+          <h1 id="h1" class="headline">Big Summer Sale</h1>
+          <p id="p1" class="subline">Limited time offers. Don’t miss out!</p>
+          <a id="cta" class="cta" href="#" role="button">Shop Now</a>
+        </div>
+      </div>
+
+      <p class="tip">Drag images or stickers to position. Headline and button are centered by default.</p>
+    </section>
+  </main>
+
+  <div class="page-bottom-space"></div>
+
+  <!-- libs for export -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <script src="js/banner.js"></script>
+</body>
+</html>

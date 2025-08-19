@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vividly — Landing Page Editor</title>
+  <link rel="stylesheet" href="css/landing.css" />
+</head>
+<body>
+
+  <!-- Fixed Home -->
+  <a class="home-btn" href="index.html" aria-label="Go home">
+    <span class="arr">←</span> Home
+  </a>
+
+  <main class="layout">
+    <!-- LEFT: Controls -->
+    <aside class="panel">
+      <h2 class="title">Landing Editor</h2>
+
+      <!-- Template -->
+      <section class="group">
+        <h3>Template</h3>
+        <div class="radio-row">
+          <label><input type="radio" name="tpl" value="a" checked> A — Hero left · Image right</label>
+          <label><input type="radio" name="tpl" value="b"> B — Centered hero</label>
+          <label><input type="radio" name="tpl" value="c"> C — Text left · Form right</label>
+        </div>
+      </section>
+
+      <!-- Theme -->
+      <section class="group">
+        <h3>Theme</h3>
+
+        <div class="bg-type" role="radiogroup" aria-label="Background type">
+          <label><input type="radio" name="bgType" value="gradient" checked> Gradient</label>
+          <label><input type="radio" name="bgType" value="solid"> Solid</label>
+        </div>
+
+        <!-- Gradient presets -->
+        <div id="gradRow" class="swatches" aria-label="Gradient presets">
+          <button class="swatch" data-grad="linear-gradient(135deg,#ffd5ec 0%,#ffeebe 100%)" aria-label="Peachy"></button>
+          <button class="swatch" data-grad="linear-gradient(135deg,#d6b4fc 0%,#fbc9da 100%)" aria-label="Lilac Petal"></button>
+          <button class="swatch" data-grad="linear-gradient(135deg,#92e3a9 0%,#ffe29a 100%)" aria-label="Mint Sunshine"></button>
+          <button class="swatch" data-grad="linear-gradient(135deg,#a7f3d0 0%,#dbeafe 100%)" aria-label="Aqua Sky"></button>
+        </div>
+
+        <!-- Solid color -->
+        <div id="solidRow" class="solid-row" hidden>
+          <input id="bgColor" type="color" value="#ffffff" aria-label="Background color">
+          <input id="bgHex" class="input" value="#ffffff" aria-label="Background hex">
+        </div>
+
+        <div class="row">
+          <span>Primary</span>
+          <input id="primaryColor" type="color" value="#f97316" aria-label="Primary color">
+          <input id="primaryHex" class="input small" value="#f97316" aria-label="Primary hex">
+        </div>
+
+        <div class="row">
+          <span>Accent</span>
+          <input id="accentColor" type="color" value="#2c1c3c" aria-label="Accent color">
+          <input id="accentHex" class="input small" value="#2c1c3c" aria-label="Accent hex">
+        </div>
+
+        <label class="lbl" for="fontSel">Font</label>
+        <select id="fontSel" class="select">
+          <option value="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif">System UI</option>
+          <option value="'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif" selected>Poppins</option>
+          <option value="'Playfair Display',serif">Playfair Display</option>
+        </select>
+      </section>
+
+      <!-- Content -->
+      <section class="group">
+        <h3>Content</h3>
+
+        <label class="lbl" for="headline">Headline</label>
+        <input id="headline" class="input" value="Grow faster with Vividly">
+
+        <label class="lbl" for="subline">Subline</label>
+        <textarea id="subline" class="input" rows="3">Launch beautiful pages in minutes. Convert more visitors with bold design and clear calls to action.</textarea>
+
+        <div class="row">
+          <span>CTA text</span>
+          <input id="ctaText" class="input" value="Get Started">
+        </div>
+        <div class="row">
+          <span>CTA link</span>
+          <input id="ctaLink" class="input" value="#">
+        </div>
+      </section>
+
+      <!-- Image -->
+      <section class="group">
+        <h3>Hero image</h3>
+        <label class="file-btn">
+          <input id="imgInput" type="file" accept="image/*" hidden>
+          + Choose Image
+        </label>
+        <p class="hint">Tip: transparent PNGs look great.</p>
+      </section>
+
+      <!-- Form builder -->
+      <section class="group">
+        <h3>Form fields</h3>
+
+        <div id="fieldsList" class="fields"></div>
+
+        <div class="field-add">
+          <input id="newLabel" class="input" placeholder="Field label (e.g., Company)">
+          <select id="newType" class="select">
+            <option value="text">Text</option>
+            <option value="email">Email</option>
+            <option value="tel">Phone</option>
+            <option value="number">Number</option>
+            <option value="url">URL</option>
+            <option value="textarea">Textarea</option>
+          </select>
+          <button id="addField" class="btn outline" type="button">+ Add field</button>
+        </div>
+      </section>
+
+      <section class="group export">
+        <div class="export-row">
+          <button id="resetBtn" class="btn">Reset</button>
+          <button id="clearStorage" class="btn outline">Clear Saved</button>
+        </div>
+      </section>
+    </aside>
+
+    <!-- RIGHT: Live Preview -->
+    <section class="preview-col">
+      <div id="page" class="page tpl-a">
+        <!-- HERO SECTION -->
+        <header class="hero">
+          <div class="hero-inner">
+            <div class="copy">
+              <h1 id="p-title">Grow faster with Vividly</h1>
+              <p id="p-sub">Launch beautiful pages in minutes. Convert more visitors with bold design and clear calls to action.</p>
+              <a id="p-cta" class="cta" href="#">Get Started</a>
+            </div>
+            <div class="art">
+              <img id="p-img" alt="" />
+            </div>
+          </div>
+        </header>
+
+        <!-- FORM SECTION (only visible in tpl-c) -->
+        <section class="form-wrap" id="formWrap">
+          <form id="leadForm" class="lead-form" onsubmit="return false;">
+            <div id="formFields"></div>
+            <button class="cta wide" type="submit">Request demo</button>
+          </form>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">© Vividly</footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/landing.js"></script>
+</body>
+</html>

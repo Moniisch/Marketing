@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vividly Marketing</title>
+  <!-- Your CSS (the responsive/burger CSS you already have) -->
+  <link rel="stylesheet" href="css/index.css?v=4" />
+  <!-- Defer JS so the DOM exists before we bind -->
+  <script defer src="js/script.js?v=4"></script>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="main-header">
+    <!-- Left: profile / current user -->
+    <div id="profileArea" class="profile-area" style="display:none">
+      <img class="profile-avatar" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile">
+      <span id="currentUser" class="profile-name"></span>
+      <button id="profileChevron" class="chevron" aria-label="Open profile menu" aria-expanded="false">▾</button>
+
+      <!-- Profile dropdown -->
+      <nav class="profile-menu" id="profileMenu" role="menu">
+        <button id="logoutBtn" type="button" role="menuitem">Log out</button>
+      </nav>
+    </div>
+
+    <!-- Right: animated nav buttons (desktop) -->
+    <nav class="nav-actions">
+      <a class="nav-btn grapefruit" href="index.html">Home</a>
+      <a class="nav-btn petal" href="#contact">Contact Us</a>
+      <a class="nav-btn lilac" href="#team">About</a>
+    </nav>
+
+    <!-- Mobile burger (replaces blocks on small screens) -->
+    <button
+      id="toolsBurger"
+      class="tools-burger"
+      aria-label="Open tools menu"
+      aria-controls="toolsMenu"
+      aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Decorative color blocks (hidden on mobile by CSS) -->
+  <nav class="design-nav" aria-hidden="true">
+    <div class="nav-block grapefruit"></div>
+    <div class="nav-block lipstick"></div>
+    <div class="nav-block lilac"></div>
+    <div class="nav-block petal"></div>
+    <div class="nav-block sunshine"></div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <h1>Welcome to Vividly</h1>
+    <p>Create stunning marketing experiences with vibrant tools.</p>
+  </section>
+
+  <!-- ===== Feature Blocks (hidden on mobile by CSS) ===== -->
+  <section class="blocks">
+    <a href="banner.html" class="block grapefruit">Banner Editor</a>
+    <a href="marketing.html" class="block lipstick">Marketing Page Editor</a>
+    <a href="landing.html" class="block lilac">Landing Page Editor</a>
+    <a href="register.html" class="block petal">Register / Login</a>
+    <a href="campaign.html" class="block sunshine">Campaign Overview</a>
+  </section>
+
+ <!-- ===== Team / About ===== -->
+<section class="team-section" id="team">
+  <h2>Meet Our Team</h2>
+
+  <div class="team-slider">
+    <button class="arrow prev" aria-label="Previous">←</button>
+
+    <!-- Card 1 -->
+    <article class="team-card active">
+      <img src="monica.jpg" alt="Monica" />
+      <div class="card-content">
+        <h3 class="member-name">Monica</h3>
+        <p class="member-role">CEO &amp; Founder</p>
+        <p class="member-bio">
+          Monica drives strategy and culture with a hands‑on, customer‑first mindset.
+          She loves turning bold ideas into measurable growth.
+        </p>
+        <button class="read-more-btn"
+                onclick="openModal('Monica S.', 'Monica leads the company with vision and passion across product, brand, and growth.')">
+          Read More
+        </button>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="team-card">
+      <img src="jamie.jpg" alt="Jamie " />
+      <div class="card-content">
+        <h3 class="member-name">Jamie</h3>
+        <p class="member-role">Marketing Manager</p>
+        <p class="member-bio">
+          Jamie coordinates multi‑channel campaigns and partnerships that keep our
+          pipeline healthy and our brand buzzing.
+        </p>
+        <button class="read-more-btn"
+                onclick="openModal('Jamie Lee', 'Jamie is a marketing wizard who runs our digital strategy.')">
+          Read More
+        </button>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="team-card">
+      <img src="alex.jpg" alt="Alex " />
+      <div class="card-content">
+        <h3 class="member-name">Alex </h3>
+        <p class="member-role">Creative Director</p>
+        <p class="member-bio">
+          Alex crafts visual systems and brand stories with crisp design and
+          scroll‑stopping concepts.
+        </p>
+        <button class="read-more-btn"
+                onclick="openModal('Alex Morgan', 'Alex leads all visual direction for client brands.')">
+          Read More
+        </button>
+      </div>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="team-card">
+      <img src="lara.jpg" alt="Lara Kim" />
+      <div class="card-content">
+        <h3 class="member-name">Lara Kim</h3>
+        <p class="member-role">Social Media Lead</p>
+        <p class="member-bio">
+          Lara turns insights into high‑engagement content plans that build loyal
+          communities and spark conversations.
+        </p>
+        <button class="read-more-btn"
+                onclick="openModal('Lara Kim', 'Lara makes sure our content goes viral and drives engagement.')">
+          Read More
+        </button>
+      </div>
+    </article>
+
+    <!-- Card 5 -->
+    <article class="team-card">
+      <img src="david.jpg" alt="David " />
+      <div class="card-content">
+        <h3 class="member-name">David </h3>
+        <p class="member-role">UX/UI Specialist</p>
+        <p class="member-bio">
+          David designs delightful flows and accessible interfaces that users love
+          from first click to final conversion.
+        </p>
+        <button class="read-more-btn"
+                onclick="openModal('David R.', 'David builds seamless interfaces that users love.')">
+          Read More
+        </button>
+      </div>
+    </article>
+
+    <button class="arrow next" aria-label="Next">→</button>
+  </div>
+</section>
+
+  <!-- ===== Contact ===== -->
+  <section class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+
+    <div class="contact-grid">
+      <form class="contact-card contact-form">
+        <div class="form-row">
+          <label for="c-name">Name</label>
+          <input id="c-name" type="text" required />
+        </div>
+        <div class="form-row">
+          <label for="c-email">Email</label>
+          <input id="c-email" type="email" required />
+        </div>
+        <div class="form-row">
+          <label for="c-msg">Message</label>
+          <textarea id="c-msg" rows="5" required></textarea>
+        </div>
+        <button class="read-more-btn" type="submit">Send</button>
+      </form>
+
+      <div class="contact-card contact-info">
+        <h3>Let’s talk!</h3>
+        <p>We love vivid ideas. Reach out and we’ll get back within 1 business day.</p>
+        <ul class="contact-list">
+          <li><strong>Email:</strong> hello@vividly.com</li>
+          <li><strong>Phone:</strong> +1 (555) 123-4567</li>
+          <li><strong>Address:</strong> 123 Bright Ave, Color City</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team modal -->
+  <div class="modal" id="teamModal" aria-hidden="true">
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <!-- Thank you modal -->
+  <div id="thanksModal" class="thanks-overlay" aria-hidden="true">
+    <div class="thanks-card" role="dialog" aria-modal="true" aria-labelledby="thanks-title">
+      <div class="burst"></div>
+      <h3 id="thanks-title">Thanks! ✨</h3>
+      <p>We got your message and will get back to you shortly.</p>
+      <button class="btn-ok" type="button" id="thanksOk">OK</button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu (hidden initially) -->
+  <aside id="toolsMenu" class="tools-drawer" hidden aria-hidden="true">
+    <button class="drawer-close" aria-label="Close menu">✕</button>
+    <h3 class="drawer-title">Tools</h3>
+    <nav class="drawer-links">
+      <a href="banner.html" class="chip grapefruit">Banner Editor</a>
+      <a href="marketing.html" class="chip lipstick">Marketing Page Editor</a>
+      <a href="landing.html" class="chip lilac">Landing Page Editor</a>
+      <a href="campaign.html" class="chip sunshine">Campaign Overview</a>
+      <a href="register.html" class="chip petal">Register / Login</a>
+    </nav>
+  </aside>
+
+</body>
+</html>

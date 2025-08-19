@@ -1,0 +1,101 @@
+:root{
+    --ink:#2c1c3c;
+    --bg1:#ffd5ec;
+    --bg2:#ffeebe;
+    --grapefruit:#F95019;
+    --lipstick:#EF3795;
+    --lilac:#D6B4FC;
+    --sunshine:#FFBD2D;
+  }
+  
+  *{ box-sizing:border-box }
+  html,body{ margin:0 }
+  body{
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background: linear-gradient(135deg,var(--bg1) 0%, var(--bg2) 100%);
+    min-height:100vh;
+  }
+  
+  /* Fixed Home */
+  .home-btn{
+    position:fixed; top:14px; left:14px; z-index:1000;
+    display:inline-flex; align-items:center; gap:10px;
+    font-weight:800; color:#1f0f2c; text-decoration:none;
+    padding:10px 22px; border-radius:999px;
+    background:linear-gradient(135deg,#ffec3d,#ff8a23);
+    box-shadow:0 20px 40px rgba(255,166,0,.35);
+  }
+  .home-btn .arr{ font-size:18px; line-height:1 }
+  
+  /* Pills row */
+  .pills{
+    display:flex; gap:10px; flex-wrap:wrap;
+    max-width:1100px; margin:92px auto 8px; padding:0 16px;
+  }
+  .pill{
+    border:0; cursor:pointer; font-weight:900;
+    padding:12px 18px; border-radius:16px; color:#1f0f2c;
+    box-shadow:0 10px 20px rgba(0,0,0,.12);
+  }
+  .pill-banner   { background:var(--sunshine) }
+  .pill-marketing{ background:var(--lilac) }
+  .pill-landing  { background:#a7f3d0 }
+  
+  /* Page container */
+  .wrap{
+    max-width:1100px; margin:0 auto; padding:10px 16px 40px;
+  }
+  .page-head h1{ margin:.2rem 0 .3rem; font-size:2rem }
+  .page-head .sub{ margin:0 0 14px; opacity:.8 }
+  
+  /* Sections */
+  .section{ margin:18px 0 26px }
+  .section-head{ display:flex; align-items:center; gap:10px; margin-bottom:10px }
+  .section-head h2{ margin:0; font-size:1.35rem }
+  .count{
+    display:inline-block; min-width:28px; text-align:center;
+    padding:4px 8px; border-radius:999px; background:#fff; box-shadow:0 8px 18px rgba(0,0,0,.08);
+    font-weight:800;
+  }
+  
+  /* Grid + cards */
+  .grid{
+    display:grid; gap:14px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+  .grid.one{ grid-template-columns: 1fr; }
+  
+  .card{
+    display:grid; grid-template-columns:120px 1fr auto; gap:14px;
+    align-items:center; background:#fff; border-radius:18px; padding:12px;
+    box-shadow:0 12px 26px rgba(0,0,0,.1);
+  }
+  .thumb{
+    width:120px; height:80px; border-radius:12px; overflow:hidden; background:#fafafa;
+    display:grid; place-items:center;
+  }
+  .thumb img{ width:100%; height:100%; object-fit:cover }
+  .thumb.placeholder.banner    { background: repeating-linear-gradient(45deg,#f7f7f7 0 10px, #efefef 10px 20px) }
+  .thumb.placeholder.landing   { background: repeating-linear-gradient(45deg,#e6fff3 0 10px, #ddfff0 10px 20px) }
+  .thumb.placeholder.marketing { background: repeating-linear-gradient(45deg,#f2e8ff 0 10px, #ebe1ff 10px 20px) }
+  
+  .meta h3{ margin:.2rem 0 .1rem; font-size:1rem }
+  .meta .muted{ margin:.1rem 0 0; opacity:.75; font-size:.95rem }
+  
+  .actions{ display:flex; gap:8px }
+  .btn{
+    border:0; padding:10px 12px; border-radius:12px; font-weight:800; cursor:pointer;
+    background:#111; color:#fff;
+  }
+  .btn.danger{ background:#b00020 }
+  
+  /* Empty text */
+  .empty{ margin:6px 2px 0; opacity:.75 }
+  
+  /* Responsive tweaks */
+  @media (max-width: 640px){
+    .card{ grid-template-columns:1fr; text-align:center }
+    .thumb{ margin:0 auto }
+    .actions{ justify-content:center }
+  }

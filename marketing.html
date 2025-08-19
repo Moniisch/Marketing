@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vividly — Marketing Page Editor</title>
+  <link rel="stylesheet" href="css/marketing.css">
+</head>
+<body>
+  <!-- Fixed Home -->
+  <a class="home-btn" href="index.html" aria-label="Go home">
+    <span class="arr">←</span> Home
+  </a>
+
+  <main class="layout">
+    <!-- LEFT: Controls -->
+    <aside class="panel">
+      <h2 class="title">Marketing Page Editor</h2>
+
+      <!-- Template -->
+      <section class="group">
+        <h3>Template</h3>
+        <select id="template" class="input">
+          <option value="classic">Classic Hero</option>
+          <option value="split">Split Hero</option>
+          <option value="cards">Cards Hero</option>
+        </select>
+      </section>
+
+      <!-- Theme -->
+      <section class="group">
+        <h3>Theme</h3>
+        <div class="row">
+          <span>Accent</span>
+          <input id="accent" type="color" value="#f97316">
+          <input id="accentHex" class="input small" value="#f97316">
+        </div>
+
+        <div class="bg-type" role="radiogroup">
+          <label><input type="radio" name="bgType" value="gradient" checked> Gradient</label>
+          <label><input type="radio" name="bgType" value="solid"> Solid</label>
+        </div>
+
+        <div id="gradRow" class="swatches">
+          <button class="swatch" data-grad="linear-gradient(135deg,#ffd5ec 0%,#ffeebe 100%)" aria-label="Peachy"></button>
+          <button class="swatch" data-grad="linear-gradient(135deg,#d6b4fc 0%,#fbc9da 100%)" aria-label="Lilac Petal"></button>
+          <button class="swatch" data-grad="linear-gradient(135deg,#a7f3d0 0%,#dbeafe 100%)" aria-label="Aqua Sky"></button>
+        </div>
+
+        <div id="solidRow" class="solid-row" hidden>
+          <input id="bgSolid" type="color" value="#ffffff">
+          <input id="bgHex" class="input small" value="#ffffff">
+        </div>
+
+        <label class="lbl" for="font">Font</label>
+        <select id="font" class="input">
+          <option value="'Poppins',system-ui">Poppins</option>
+          <option value="'Inter',system-ui">Inter</option>
+          <option value="'Nunito',system-ui">Nunito</option>
+          <option value="'Playfair Display',serif">Playfair (serif)</option>
+        </select>
+      </section>
+
+      <!-- Content -->
+      <section class="group">
+        <h3>Content</h3>
+        <label class="lbl" for="siteTitle">Site title</label>
+        <input id="siteTitle" class="input" value="Vividly">
+
+        <label class="lbl" for="headline">Headline</label>
+        <input id="headline" class="input" value="Create Marketing Pages That Convert">
+
+        <label class="lbl" for="subline">Subheading</label>
+        <input id="subline" class="input" value="Beautiful templates, instant preview, zero code.">
+
+        <label class="lbl" for="body">Hero paragraph</label>
+        <textarea id="body" class="input" rows="4">Design stunning landing pages with flexible blocks and a vibrant theme system.</textarea>
+
+        <label class="lbl" for="ctaText">CTA</label>
+        <div class="row">
+          <input id="ctaText" class="input" value="Get Started">
+          <input id="ctaLink" class="input" placeholder="https://example.com">
+        </div>
+
+        <label class="lbl">Hero image</label>
+        <label class="file-btn">
+          <input id="imgInput" type="file" accept="image/*" hidden>
+          + Choose Image
+        </label>
+        <button id="clearImg" class="btn ghost" type="button">Remove image</button>
+      </section>
+
+      <!-- Features list -->
+      <section class="group">
+        <h3>Features</h3>
+        <div id="featuresList" class="repeater"></div>
+        <div class="row">
+          <input id="featureInput" class="input" placeholder="Add a feature…">
+          <button id="addFeature" class="btn small" type="button">Add</button>
+        </div>
+      </section>
+
+      <!-- Save / Reset -->
+      <section class="group">
+        <div class="export-row">
+          <button id="resetBtn" class="btn outline" type="button">Reset</button>
+          <button id="exportHtml" class="btn primary" type="button">Export HTML</button>
+        </div>
+      </section>
+    </aside>
+
+    <!-- RIGHT: Live Preview (sticky) -->
+    <section class="preview-col">
+      <div id="page" class="page page--classic" aria-live="polite">
+        <header class="site-header">
+          <div class="brand" id="brandPreview">Vividly</div>
+          <nav class="site-nav"><a href="#">Features</a><a href="#">Pricing</a><a href="#">Contact</a></nav>
+        </header>
+
+        <section class="hero">
+          <div class="hero-copy">
+            <h1 id="h1Preview">Create Marketing Pages That Convert</h1>
+            <p id="subPreview" class="sub">Beautiful templates, instant preview, zero code.</p>
+            <p id="pPreview" class="body">Design stunning landing pages with flexible blocks and a vibrant theme system.</p>
+            <a id="ctaPreview" class="cta" href="#">Get Started</a>
+          </div>
+          <div class="hero-media">
+            <img id="heroImg" alt="" />
+          </div>
+        </section>
+
+        <section class="features" id="featuresPreview">
+          <!-- injected feature bullets -->
+        </section>
+
+        <footer class="site-footer">© <span id="year"></span> Vividly</footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/marketing.js"></script>
+</body>
+</html>

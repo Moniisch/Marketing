@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Vividly — Campaign Overview</title>
+  <link rel="stylesheet" href="css/campaign.css"/>
+</head>
+<body>
+
+  <!-- Fixed Home -->
+  <a class="home-btn" href="index.html" aria-label="Go home">
+    <span class="arr">←</span> Home
+  </a>
+
+  <!-- Top action pills ONLY (no extra buttons below) -->
+  <div class="pills">
+    <button class="pill pill-banner"    data-go="banner">+ New Banner</button>
+    <button class="pill pill-marketing" data-go="marketing">+ Marketing Page</button>
+    <button class="pill pill-landing"   data-go="landing">+ Landing Page</button>
+  </div>
+
+  <main class="wrap">
+    <header class="page-head">
+      <h1>Campaign Overview</h1>
+      <p class="sub">Create and manage your campaign assets.</p>
+    </header>
+
+    <!-- Banners (optional listing from localStorage) -->
+    <section class="section">
+      <div class="section-head">
+        <h2>Banners</h2>
+        <span id="bCount" class="count">0</span>
+      </div>
+
+      <div id="bGrid" class="grid"></div>
+      <p id="bEmpty" class="empty" hidden>No banners yet. Click “+ New Banner”.</p>
+    </section>
+
+    <!-- Landing Page (placeholder) -->
+    <section class="section">
+      <div class="section-head">
+        <h2>Landing Page</h2>
+      </div>
+      <div class="grid one">
+        <article class="card">
+          <div class="thumb placeholder landing"></div>
+          <div class="meta">
+            <h3>Landing Page</h3>
+            <p class="muted">Design and preview your landing.</p>
+          </div>
+          <div class="actions">
+            <a class="btn" href="landing.html">Open editor</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Marketing Page (placeholder) -->
+    <section class="section">
+      <div class="section-head">
+        <h2>Marketing Page</h2>
+      </div>
+      <div class="grid one">
+        <article class="card">
+          <div class="thumb placeholder marketing"></div>
+          <div class="meta">
+            <h3>Marketing Page</h3>
+            <p class="muted">Build your marketing page.</p>
+          </div>
+          <div class="actions">
+            <a class="btn" href="marketing.html">Open editor</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/campaign.js"></script>
+</body>
+</html>
